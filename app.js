@@ -1,7 +1,6 @@
 const header = document.getElementById('site-header');
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.getElementById('mobile-nav');
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches && !document.documentElement.classList.contains('force-motion');
 
 const loader = document.getElementById('site-loader');
 if (loader) {
@@ -26,7 +25,7 @@ if (loader) {
   function finishLoading() {
     if (finishing) return;
     finishing = true;
-    const minimumTime = reducedMotion ? 0 : 1200;
+    const minimumTime = 1200;
     const remaining = Math.max(0, minimumTime - (performance.now() - startedAt));
     window.setTimeout(() => {
       window.clearInterval(progressTimer);
@@ -36,8 +35,8 @@ if (loader) {
         window.setTimeout(() => {
           document.documentElement.classList.remove('js-loading');
           loader.remove();
-        }, reducedMotion ? 0 : 500);
-      }, reducedMotion ? 0 : 220);
+        }, 500);
+      }, 220);
     }, remaining);
   }
 
@@ -109,7 +108,6 @@ const processObserver = new IntersectionObserver(entries => {
 processObserver.observe(process);
 
 function animateValue(element, target, duration, formatter) {
-  if (reducedMotion) { element.textContent = formatter(target); return; }
   const start = performance.now();
   function frame(now) {
     const progress = Math.min((now - start) / duration, 1);
@@ -134,7 +132,7 @@ const statementPhoto = document.querySelector('.statement-photo');
 let rafPending = false;
 function updateParallax() {
   rafPending = false;
-  if (reducedMotion || window.innerWidth < 620) return;
+  if (window.innerWidth < 620) return;
   const rect = statement.getBoundingClientRect();
   if (rect.bottom < 0 || rect.top > innerHeight) return;
   const progress = (innerHeight - rect.top) / (innerHeight + rect.height);

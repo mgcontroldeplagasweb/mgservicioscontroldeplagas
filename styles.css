@@ -40,4 +40,3 @@
 @media(max-width:380px){.hero-content{padding-top:139px}.hero-inner{min-height:760px}h1{font-size:45px}.hero-lead{font-size:15px}.hero-actions{gap:7px}.hero-actions .button{font-size:11px}.hero-rating{gap:9px}.hero-rating .rating-stars{font-size:11px;letter-spacing:0}.service-card p{display:none}.audience-content h3{font-size:34px}.cta-copy h2{font-size:45px}}
 @keyframes hero-opacity{from{opacity:0}to{opacity:1}}
 @media(max-width:620px){.hero-content{position:static;animation:hero-opacity 1s .1s both}}
-@media(prefers-reduced-motion:reduce){html:not(.force-motion){scroll-behavior:auto}html:not(.force-motion) *,html:not(.force-motion) *:before,html:not(.force-motion) *:after{animation-duration:.01ms!important;transition-duration:.01ms!important}html:not(.force-motion) .reveal{opacity:1;transform:none}html:not(.force-motion) .process-line span{width:100%!important;height:100%!important}}

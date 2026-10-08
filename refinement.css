@@ -194,13 +194,6 @@
   .review-card p,.review-card:first-of-type p { font-size: 17px; }
   .review-card footer { display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin-top: 20px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  html:not(.force-motion) .hero-eyebrow,html:not(.force-motion) .hero-content h1,html:not(.force-motion) .hero-lead,html:not(.force-motion) .hero-actions,html:not(.force-motion) .hero-rating { animation: none; }
-  html:not(.force-motion) .reveal,html:not(.force-motion) .service-feature.reveal,html:not(.force-motion) .statement-frame.reveal { clip-path: none; filter: none; }
-  html:not(.force-motion) .audience-card.reveal .audience-photo { transform: none; }
-  html:not(.force-motion) .statement-rule,html:not(.force-motion) .service-feature-rule { width: 95px; }
-}
-
 /* Two distinct transitions keep the long landing page in motion. */
 .motion-band {
   position: relative;
@@ -334,15 +327,6 @@
   .kinetic-word { font-size: clamp(23px,6vw,31px); }
   .kinetic-plus { width: 27px; height: 27px; font-size: 20px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  html:not(.force-motion) .motion-band.is-active .motion-track { animation: none; }
-  html:not(.force-motion) .kinetic-word { opacity: 1; transform: none; }
-  html:not(.force-motion) .kinetic-plus { opacity: 1; transform: none; }
-  html:not(.force-motion) .kinetic-line { width: min(84%,1150px); }
-  html:not(.force-motion) .audience-card.is-visible::after { animation: none; display: none; }
-  html:not(.force-motion) .hero-note-top,html:not(.force-motion) .hero-note-bottom { animation: none; }
-}
-
 /* Client-supplied map of Buenos Aires Province. */
 .map-card {
   background: #fff;
@@ -523,7 +507,14 @@ html.js-loading .site-loader { display: grid; }
 html.js-loading .site-loader.is-finishing { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
 @keyframes loader-appear { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes loader-orbit { from { transform: scale(.94); opacity: .6; } to { transform: scale(1.04); opacity: 1; } }
-@media (prefers-reduced-motion: reduce) {
-  html:not(.force-motion) .site-loader-inner,html:not(.force-motion) .site-loader::after { animation: none; }
-  html:not(.force-motion) .site-loader-track span,html:not(.force-motion) .site-loader.is-finishing { transition: none; }
+@media (max-width: 620px) {
+  .hero-content { padding-top: 92px; }
+  .hero-shade {
+    background: linear-gradient(180deg,
+      #f7f8f4 0%,
+      #f7f8f4 37%,
+      rgba(247,248,244,.75) 48%,
+      rgba(247,248,244,.18) 58%,
+      rgba(247,248,244,0) 68%);
+  }
 }
